@@ -1,0 +1,6 @@
+dateTimePicker1.Format = DateTimePickerFormat.Short;
+dateTimePicker1.Value = DateTime.Today;
+-----------------------------------------
+DateTime iDate;
+iDate = dateTimePicker1.Value;
+MessageBox.Show("Selected date is " + iDate);
