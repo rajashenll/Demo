@@ -1,0 +1,26 @@
+public static void writelog(string message)
+{
+string applicationpath = Application.StartupPath + "\\Activitylog\\" + DateTime.Now.ToString("MM/DD/YYYY") + ".txt";
+try
+{
+string str_logdetail = DateTime.Now.ToString() + ":" + message.Trim() + "\r\n";
+if(!Directory.Exists(Application.StartupPath+"\\Activitylog\\"))
+{
+    Directory.CreateDirectory(Application.StartupPath + "\\Activitylog\\");
+}
+if (!File.Exists(@applicationpath))
+{
+    File.WriteAllText(@applicationpath, str_logdetail);
+}
+else
+{
+    FileInfo fi = new FileInfo(@applicationpath);
+    File.AppendAllText(@applicationpath, str_logdetail);
+}
+}
+catch(Exception ex)
+{
+writelog(ex.Message);
+}
+
+}
